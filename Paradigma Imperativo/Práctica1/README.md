@@ -11,6 +11,10 @@ Haga un programa que cuente e indique el número de caracteres, el número de pa
 
 ## Ejercicio 2
 Escriba el programa más eficiente que pueda para imprimir en pantalla la siguiente figura: 
+
+
+
+
 ![Esta es una imagen de ejemplo](https://cdn.discordapp.com/attachments/708903554173108296/1142164986802733066/image.png)
 
 Para dicho fin, escriba y use una función que reciba de parámetro la cantidad de elementos de la línea del centro, la cual debe ser impar positiva.
