@@ -98,6 +98,21 @@ func (l *listaProductos) listarProductosMinimos() listaProductos {
 	return prodMin
 }
 
+// Ejercicio a
+func (l *listaProductos) aumentarInventarioDeMinimos(listaMinimos []producto) {
+	for i := 0; i < len(listaMinimos); i++ {
+		listaMinimos[i].cantidad = existenciaMinima
+		for j := 0; j < len(*l); j++ {
+			if listaMinimos[i].nombre == (*l)[j].nombre {
+				(*l)[j].cantidad = listaMinimos[i].cantidad
+				break
+			}
+		}
+	}
+}
+
+//Ejercicio b
+
 func main() {
 	llenarDatos()
 	fmt.Println(lProductos)
