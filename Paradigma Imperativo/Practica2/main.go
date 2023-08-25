@@ -1,15 +1,23 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"sort"
+)
 
 type producto struct {
 	nombre   string
 	cantidad int
 	precio   int
 }
+
 type listaProductos []producto
 
 var lProductos listaProductos
+
+func (l listaProductos) Len() int           { return len(l) }
+func (l listaProductos) Less(i, j int) bool { return (l)[i].nombre < (l)[j].nombre }
+func (l listaProductos) Swap(i, j int)      { (l)[i], (l)[j] = (l)[j], (l)[i] }
 
 const existenciaMinima int = 10 //la existencia mínima es el número mínimo debajo de el cual se deben tomar eventuales desiciones
 
@@ -73,7 +81,7 @@ func (l *listaProductos) venderProducto(nombre string, cantidad int) {
 		} else {
 			fmt.Println("No existe ese producto")
 		}
-	}
+	} //a b c e f d
 }
 
 //haga una función para a partir del nombre del producto, se pueda modificar el precio del mismo Pero utilizando la función buscarProducto MODIFICADA PREVIAMENTE
@@ -111,7 +119,23 @@ func (l *listaProductos) aumentarInventarioDeMinimos(listaMinimos []producto) {
 	}
 }
 
-//Ejercicio b
+// Ejercicio b
+func (l *listaProductos) ordenarPor(tipo int) {
+	if tipo == 1 {
+		//nombre
+		sort.Sort(listaProductos(*l))
+	} else if tipo == 2 {
+		sort.SliceStable(lProductos, func(i, j int) bool {
+			return lProductos[i].cantidad < lProductos[j].cantidad
+		})
+	} else if tipo == 3 {
+		sort.SliceStable(lProductos, func(i, j int) bool {
+			return lProductos[i].precio < lProductos[j].precio
+		})
+	} else {
+		fmt.Println("Tipo para ordenamiento invalido")
+	}
+}
 
 func main() {
 	llenarDatos()
@@ -122,5 +146,20 @@ func main() {
 	fmt.Println(lProductos)
 
 	lProductos.agregarProducto("arroz", 20, 20)
+	fmt.Println(lProductos)
+
+	min := lProductos.listarProductosMinimos()
+
+	lProductos.aumentarInventarioDeMinimos(min)
+
+	fmt.Println(lProductos)
+
+	lProductos.ordenarPor(1)
+	fmt.Println(lProductos)
+
+	lProductos.ordenarPor(2)
+	fmt.Println(lProductos)
+
+	lProductos.ordenarPor(3)
 	fmt.Println(lProductos)
 }
