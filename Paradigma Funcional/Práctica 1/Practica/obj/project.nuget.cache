@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "DmjI8UH2bzqCY2bGBsQhR0oNK8bg/MCtF1AkUL0Qm76Hpi+W5Aid9EH0BUm/YDe67HX1mzcYdnvpA8VG+UbrKQ==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\nuryb\\OneDrive\\Escritorio\\ldp\\Paradigma Funcional\\Práctica 1\\Practica\\Practica.fsproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\nuryb\\.nuget\\packages\\fsharp.core\\7.0.400\\fsharp.core.7.0.400.nupkg.sha512"
+  ],
+  "logs": []
+}
