@@ -1,0 +1,38 @@
+% Ejercicio 1
+sumlist(L, S) :- sumlist(L, 0, S).
+
+sumlist([], Acc, Acc).
+
+sumlist([X|Xs], Acc, S) :-
+    NewAcc is Acc + X,
+    sumlist(Xs, NewAcc, S).
+
+% Ejercicio 2
+subconj([], []).
+subconj([X|XS], [X|YS]) :- subconj(XS, YS).
+subconj([_|XS], YS) :- subconj(XS, YS).
+
+% Ejercicio 3
+aplanar([], []).
+aplanar([X|Xs], L2) :-
+    aplanar(X, X1),
+    aplanar(Xs, Xs1),
+    append(X1, Xs1, L2).
+aplanar(X, [X]) :- \+ is_list(X).
+
+% Ejercicio 4
+partir([], _, [], []).
+partir([X|Xs], Umbral, [X|Menores], Mayores) :-
+    X =< Umbral,
+    partir(Xs, Umbral, Menores, Mayores).
+partir([X|Xs], Umbral, Menores, [X|Mayores]) :-
+    X > Umbral,
+    partir(Xs, Umbral, Menores, Mayores).
+
+% Ejercicio 5
+sub_cadenas(_, [], []).
+sub_cadenas(Subcadena, [X|Xs], [X|Filtradas]) :-
+    sub_atom(X, _, _, _, Subcadena),
+    sub_cadenas(Subcadena, Xs, Filtradas).
+sub_cadenas(Subcadena, [_|Xs], Filtradas) :-
+    sub_cadenas(Subcadena, Xs, Filtradas).
