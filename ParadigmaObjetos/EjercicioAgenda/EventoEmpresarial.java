@@ -1,6 +1,6 @@
-package ParadigmaObjetos.EjercicioAgenda.Agenda.src.main.java.com.mycompany.ejercicio1repo;
+package ParadigmaObjetos.EjercicioAgenda;
 
-class EventoEmpresarial extends Evento {
+public class EventoEmpresarial extends Evento {
     private String lugar;
 
     public EventoEmpresarial(String nombreEvento, String fecha, String lugar) {

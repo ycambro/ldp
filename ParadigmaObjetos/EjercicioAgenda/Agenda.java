@@ -1,8 +1,8 @@
-package ParadigmaObjetos.EjercicioAgenda.Agenda.src.main.java.com.mycompany.ejercicio1repo;
+package ParadigmaObjetos.EjercicioAgenda;
 
 import java.util.ArrayList;
 
-class Agenda {
+public class Agenda {
     private final ArrayList<Object> contactosYEventos;
 
     public Agenda() {
